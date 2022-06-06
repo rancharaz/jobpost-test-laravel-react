@@ -46,3 +46,7 @@ Route::put('/jobpost/{jobpost}', function(jobpost $jobpost) {
          'jobRequirements'=>request('jobRequirements'),
     ]);
 });
+
+Route::delete('/jobpost/{jobpost}', function(jobpost $jobpost) {
+        return $jobpost->delete();
+});
