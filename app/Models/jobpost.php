@@ -9,4 +9,5 @@ class jobpost extends Model
 {
     use HasFactory;
     protected $table = "jobposts";
+    protected $fillable = ['jobtitle', 'jobDescription', 'jobQualifications', 'jobRequirements' ];
 }
