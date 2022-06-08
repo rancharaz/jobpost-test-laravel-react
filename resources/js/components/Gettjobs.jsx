@@ -25,9 +25,12 @@ const Getjobs = () => {
 
                     return (
                         <div key={id}>
-                            {
-                                getAllJob.jobtitle
-                            }
+                            <div className="text-4xl">
+                                {
+                                    getAllJob.jobtitle
+                                }
+                            </div>
+
                         </div>
                     )
                 })

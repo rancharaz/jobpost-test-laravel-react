@@ -10697,8 +10697,51 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
+.container {
+  width: 100%;
+}
+@media (min-width: 640px) {
+
+  .container {
+    max-width: 640px;
+  }
+}
+@media (min-width: 768px) {
+
+  .container {
+    max-width: 768px;
+  }
+}
+@media (min-width: 1024px) {
+
+  .container {
+    max-width: 1024px;
+  }
+}
+@media (min-width: 1280px) {
+
+  .container {
+    max-width: 1280px;
+  }
+}
+@media (min-width: 1536px) {
+
+  .container {
+    max-width: 1536px;
+  }
+}
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
 .mr-24 {
   margin-right: 6rem;
+}
+.ml-24 {
+  margin-left: 6rem;
+}
+.mb-2 {
+  margin-bottom: 0.5rem;
 }
 .flex {
   display: flex;
@@ -10706,8 +10749,20 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-16 {
   height: 4rem;
 }
+.h-\[26rem\] {
+  height: 26rem;
+}
+.h-14 {
+  height: 3.5rem;
+}
 .w-full {
   width: 100%;
+}
+.w-auto {
+  width: auto;
+}
+.w-24 {
+  width: 6rem;
 }
 .cursor-pointer {
   cursor: pointer;
@@ -10721,12 +10776,33 @@ Ensure the default browser behavior of the `hidden` attribute.
 .gap-10 {
   gap: 2.5rem;
 }
+.rounded-md {
+  border-radius: 0.375rem;
+}
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
+.bg-red-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(248 113 113 / var(--tw-bg-opacity));
+}
+.bg-slate-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(51 65 85 / var(--tw-bg-opacity));
+}
+.pt-10 {
+  padding-top: 2.5rem;
+}
+.pt-5 {
+  padding-top: 1.25rem;
+}
 .text-center {
   text-align: center;
+}
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 .text-4xl {
   font-size: 2.25rem;
@@ -10739,9 +10815,26 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
+.text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
 .antialiased {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.outline-none {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.hover\:bg-slate-600:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(71 85 105 / var(--tw-bg-opacity));
 }
 .hover\:text-cyan-400:hover {
   --tw-text-opacity: 1;

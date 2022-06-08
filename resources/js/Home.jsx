@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import '../../sass/app.scss'
-import Getjobs from './Gettjobs';
-import Postjobs from './Postjobs';
+/* import '../../sass/app.scss' */
+import Form from './components/Form';
+import Getjobs from './components/Gettjobs';
+import Postjobs from './components/Postjobs';
 
 
 
@@ -24,6 +25,7 @@ function Example() {
 
             <Getjobs />
             <Postjobs />
+            <Form />
         </>
 
     );

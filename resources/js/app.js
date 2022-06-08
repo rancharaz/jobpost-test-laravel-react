@@ -1,2 +1,2 @@
 
-require('./components/Example');
+require('./Home');
