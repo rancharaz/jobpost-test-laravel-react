@@ -3,34 +3,35 @@ import axios from 'axios';
 
 const Form = () => {
 
+
     const url = "http://127.0.0.1:8000/api/jobpost";
 
     const [data, setData] = useState({
         jobtitle: "",
-        jobdescrip: "",
-        jobquali: "",
-        jobrequire: ""
+        jobDescription: "",
+        jobQualifications: "",
+        jobRequirements: ""
     })
 
-    function submit(e) {
+    function submit(event) {
 
-        e.preventDefault();
+        event.preventDefault();
 
+        axios.put(url,
 
-        axios.post(url, {
-            jobtitle: data.jobtitle,
-            jobdescrip: data.jobDescription,
-            jobquali: data.jobQualifications,
-            jobrequire: data.jobRequirements,
+            {
+                jobtitle: data.jobtitle,
+                jobDescription: data.jobDescription,
+                jobQualifications: data.jobQualifications,
+                jobRequirements: data.jobRequirements,
 
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-                'Content-Type': 'application/json',
-                'Crossorigin': 'true',
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                    'Content-Type': 'application/json',
+                    'Crossorigin': 'true',
 
-            }
-
-        })
+                }
+            })
 
             .then(function (response) {
                 console.log(response.data)
@@ -41,13 +42,14 @@ const Form = () => {
 
 
 
-    function handle(e) {
-        e.preventDefault()
+
+    function handle(event) {
+        event.preventDefault()
         const newData = { ...data }
         newData[e.target.id] = e.target.value;
         setData(newData)
         console.log(newData)
-        console.log(true)
+
     }
 
 
@@ -63,20 +65,20 @@ const Form = () => {
                             <label htmlFor="jobtitle">
                                 Jobtitle:
                             </label>
-                            <input type="text" name="" id="" placeholder="" onChange={(e) => handle(e)} value={data.jobtitle} className='outline-none rounded-md ' />
+                            <input type="text" name="jobtitle" id="jobtitle" placeholder="" onChange={(e) => handle(e)} value={data.jobtitle} className='outline-none rounded-md ' />
                         </div>
 
                         <div className="form-group mb-2">
                             <label htmlFor="jobdescrip">Job description</label>
-                            <input type="text" name="" id="" placeholder="" onChange={(e) => handle(e)} value={data.jobDescription} className='outline-none rounded-md' />
+                            <input type="text" name="jobDescription" id="jobDescription" placeholder="" onChange={(e) => handle(e)} value={data.jobDescription} className='outline-none rounded-md' />
                         </div>
                         <div className="form-group mb-2 ">
                             <label htmlFor="name"> Job Qualification</label>
-                            <input type="text" name="" id="" placeholder="" onChange={(e) => handle(e)} value={data.jobQualifications} className='outline-none rounded-md ' />
+                            <input type="text" name="jobQualifications" id="jobQualifications" placeholder="" onChange={(e) => handle(e)} value={data.jobQualifications} className='outline-none rounded-md ' />
                         </div>
                         <div className="form-group  mb-2">
                             <label htmlFor="name"> Job Requirements </label>
-                            <input type="text" name="" id="" placeholder="" onChange={(e) => handle(e)} value={data.jobRequirements} className='outline-none rounded-md ' />
+                            <input type="text" name="jobRequirements" id="jobRequirements" placeholder="" onChange={(e) => handle(e)} value={data.jobRequirements} className='outline-none rounded-md ' />
                         </div>
 
                     </div>

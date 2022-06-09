@@ -2168,21 +2168,21 @@ var Form = function Form() {
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
     jobtitle: "",
-    jobdescrip: "",
-    jobquali: "",
-    jobrequire: ""
+    jobDescription: "",
+    jobQualifications: "",
+    jobRequirements: ""
   }),
       _useState2 = _slicedToArray(_useState, 2),
       data = _useState2[0],
       setData = _useState2[1];
 
-  function submit(e) {
-    e.preventDefault();
-    axios__WEBPACK_IMPORTED_MODULE_1___default().post(url, {
+  function submit(event) {
+    event.preventDefault();
+    axios__WEBPACK_IMPORTED_MODULE_1___default().put(url, {
       jobtitle: data.jobtitle,
-      jobdescrip: data.jobDescription,
-      jobquali: data.jobQualifications,
-      jobrequire: data.jobRequirements,
+      jobDescription: data.jobDescription,
+      jobQualifications: data.jobQualifications,
+      jobRequirements: data.jobRequirements,
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json',
@@ -2195,15 +2195,14 @@ var Form = function Form() {
     });
   }
 
-  function handle(e) {
-    e.preventDefault();
+  function handle(event) {
+    event.preventDefault();
 
     var newData = _objectSpread({}, data);
 
     newData[e.target.id] = e.target.value;
     setData(newData);
     console.log(newData);
-    console.log(true);
   }
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
@@ -2226,8 +2225,8 @@ var Form = function Form() {
               children: "Jobtitle:"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
               type: "text",
-              name: "",
-              id: "",
+              name: "jobtitle",
+              id: "jobtitle",
               placeholder: "",
               onChange: function onChange(e) {
                 return handle(e);
@@ -2242,8 +2241,8 @@ var Form = function Form() {
               children: "Job description"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
               type: "text",
-              name: "",
-              id: "",
+              name: "jobDescription",
+              id: "jobDescription",
               placeholder: "",
               onChange: function onChange(e) {
                 return handle(e);
@@ -2258,8 +2257,8 @@ var Form = function Form() {
               children: " Job Qualification"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
               type: "text",
-              name: "",
-              id: "",
+              name: "jobQualifications",
+              id: "jobQualifications",
               placeholder: "",
               onChange: function onChange(e) {
                 return handle(e);
@@ -2274,8 +2273,8 @@ var Form = function Form() {
               children: " Job Requirements "
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
               type: "text",
-              name: "",
-              id: "",
+              name: "jobRequirements",
+              id: "jobRequirements",
               placeholder: "",
               onChange: function onChange(e) {
                 return handle(e);
@@ -2339,12 +2338,19 @@ var Getjobs = function Getjobs() {
       setgetAlljobs = _useState2[1];
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var mounted = true;
     axios__WEBPACK_IMPORTED_MODULE_1___default().get('http://127.0.0.1:8000/api/jobpost/').then(function (response) {
       var jobData = response.data;
-      setgetAlljobs(jobData);
+
+      if (mounted) {
+        setgetAlljobs(jobData);
+      }
     })["catch"](function (error) {
       console.log(error.message);
     });
+    return function () {
+      return mounted = false;
+    };
   }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
     children: getAllJobs && getAllJobs.map(function (getAllJob, id) {
